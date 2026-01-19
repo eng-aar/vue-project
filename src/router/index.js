@@ -4,6 +4,8 @@ import HomeView from '@/views/HomeView.vue'
 import LoginView from '@/views/LoginView.vue'
 import RegisterView from '@/views/RegisterView.vue'
 import BlogView from '@/views/BlogView.vue'
+import CreatePostView from '@/views/CreatePostView.vue'
+import EditView from '@/views/EditView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,7 +34,19 @@ const router = createRouter({
       path: '/register',
       name: 'register',
       component: RegisterView
-    }
+    },
+    {
+      path: '/create',
+      name: 'create',
+      component:  CreatePostView ,
+      meta : { requiresAuth: true }
+    },
+    {
+      path: '/edit/:id',
+      name: 'edit',
+      component:  EditView ,
+      meta : { requiresAuth: true }
+    },
   ]
 })
 
